@@ -43,15 +43,10 @@ const FinalScreen: React.FC<FinalScreenProps> = ({ name, onReplay, onPrevious, o
         <div className="max-w-2xl mx-auto text-center">
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 romantic-shadow">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-relaxed">
-              Happy Girlfriend's Day, {name}. I love you.
+              Thank you for reading, {name}.
             </h1>
             
-            <div className="flex items-center justify-center space-x-2 text-white/90 text-lg">
-              <span>Check your account</span>
-              <div className="text-2xl">📥</div>
-            </div>
-            
-            <div className="mt-8 text-6xl animate-pulse">
+            <div className="text-6xl animate-pulse mb-8">
               💖
             </div>
           </div>

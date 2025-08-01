@@ -14,9 +14,9 @@ import quote9Language from '../assets/quote9-language.webp';
 import quote10Enough from '../assets/quote10-enough.webp';
 
 const quotes = [
-  "Babe, we met back in January. From the moment we met, I felt something real. Things started well, but then life asked us both to pause and heal.",
+  "Hey stranger... funny how the heart remembers what the mind tries to forget. But here you are, reading this—me, still typing it. This story is important to me, and I want to share it with you.",
   
-  "We needed some time apart. It wasn't easy, but we stayed in touch. I've always been sure of what I feel for you. This story is important to me — always will be.",
+  "Babe, we met back in January. From the moment we met, I felt something real. Things started well, but then life asked us both to pause and heal.",
   
   "Throughout the ups and downs, we kept talking. There were moments when stopping seemed like the easiest choice. Sometimes I felt disappointed, sometimes sad. Yet, the peace I find with you outweighs any doubt.",
   
@@ -55,7 +55,7 @@ const backgroundClasses = [
 ];
 
 const quoteImages = [
-  quote1Peace,      // Quote 1
+  quote3Miracle,    // Quote 1 - better for "hey stranger" opening
   quote2Strength,   // Quote 2
   quote3Miracle,    // Quote 3
   quote4Sunshine,   // Quote 4 (new family gift slide)
