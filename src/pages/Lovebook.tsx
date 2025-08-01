@@ -14,55 +14,63 @@ import quote9Language from '../assets/quote9-language.webp';
 import quote10Enough from '../assets/quote10-enough.webp';
 
 const quotes = [
-  "Babe, from the moment you walked into my life, you've been my peace in chaos, my calm in the storm. I don't say this enough, but you are the strongest person I know — soft when you need to be, fierce when life calls for it. I admire you deeply.",
+  "Babe, we met back in January. From the moment we met, I felt something real. Things started well, but then life asked us both to pause and heal.",
   
-  "Babe, your smile gives me strength. Even when you're tired, you find a way to encourage others. I see you, I honor you, and I'm so proud of the woman you are — graceful, powerful, and unstoppable.",
+  "We needed some time apart. It wasn't easy, but we stayed in touch. I've always been sure of what I feel for you. This story is important to me — always will be.",
   
-  "Sometimes I just sit and think about how lucky I am. Babe, you love with your whole heart, you protect the people you care about, and you never give up. You're my personal miracle in human form.",
+  "Throughout the ups and downs, we kept talking. There were moments when stopping seemed like the easiest choice. Sometimes I felt disappointed, sometimes sad. Yet, the peace I find with you outweighs any doubt.",
   
-  "You've gone through so much, babe. And still, you shine like the sun. Your laughter heals me, your words lift me, and your presence feels like home. You deserve all the joy this world can offer.",
+  "I remember when I surprised your family with that gift. Seeing them laugh and smile brought me such joy. Those moments when I could be part of your world meant everything to me.",
   
-  "There are days I want to give up — but then I remember how you hold me, how you fight for us, how you never let life break you. Babe, you're the kind of strong I want our children to inherit.",
+  "I look forward to seeing the best version of you — The version who loves fully, The version ready to share everything, The version open to something real with me.",
   
-  "I hope you know, babe, that your worth isn't in what you do for others. It's in the heart you carry, the way you love, the way you show up even when you're hurting. I see all of it. And I love all of it.",
+  "I hold onto the memories we made — The dates, the gifts, The joy I saw in your eyes when you accepted them. And your daily 'thank you for yesterday' means more than you know.",
   
-  "I know life hasn't always been fair to you, babe. But still, you've never let it change your heart. You're gentle, kind, and yet you carry strength that could move mountains. I'm lucky to know you. I'm honored to love you.",
+  "With you, I don't have to pretend. I'm free to be myself. I appreciate your honesty, openness, and beautiful spirit.",
   
-  "Babe, your voice is the one I want to hear on good days, and the one I need on bad ones. You're not just my lover. You're my best friend, my safe place, and the one I turn to when I forget who I am.",
+  "I often wonder what you're doing, And I cherish the random moments you share — The photos, the messages, Small things that brighten my day.",
   
-  "If love were a language, babe, you speak it fluently. Not just in words — in how you hold me when I'm weak, how you push me when I doubt myself, how you see the best in me always. That's rare. And I'll never take it for granted.",
+  "When you face challenges, I'm here. Your worries feel like my own, Sometimes I forget my own because I want to support you. And that connection means a lot.",
   
-  "Babe, I pray you never forget this: you are enough. Just as you are. You are beautiful in every way. You inspire me to be better, to love deeper, to live fully. You are everything I ever hoped for, and more."
+  "I believe in us and what we can build together. I'm ready to make a plan and move forward — if you're open to it.",
+  
+  "I don't want to rush or pressure anything. I respect where we've been and where we could go. This moment is about honesty and hope — Hoping we can find a way forward together.",
+  
+  "So, Babe, I ask simply: Are you willing to give us another chance? To explore what we can be — calmly, openly, and honestly? I'm here, ready if you are."
 ];
 
 const backgroundClasses = [
   "romantic-gradient-sunset",    // Quote 1
   "romantic-gradient-rose",      // Quote 2
   "romantic-gradient-dreamy",    // Quote 3
-  "romantic-gradient-sunset",    // Quote 4
-  "romantic-gradient-starry",    // Quote 5
+  "romantic-gradient-starry",    // Quote 4 (new family gift slide)
+  "romantic-gradient-sunset",    // Quote 5
   "romantic-gradient-rose",      // Quote 6
   "romantic-gradient-dreamy",    // Quote 7
   "romantic-gradient-sunset",    // Quote 8
   "romantic-gradient-starry",    // Quote 9
   "romantic-gradient-rose",      // Quote 10
+  "romantic-gradient-dreamy",    // Quote 11
+  "romantic-gradient-sunset",    // Quote 12
 ];
 
 const quoteImages = [
   quote1Peace,      // Quote 1
   quote2Strength,   // Quote 2
   quote3Miracle,    // Quote 3
-  quote4Sunshine,   // Quote 4
+  quote4Sunshine,   // Quote 4 (new family gift slide)
   quote5Strong,     // Quote 5
   quote6Worth,      // Quote 6
   quote7Gentle,     // Quote 7
   quote8Bestfriend, // Quote 8
   quote9Language,   // Quote 9
   quote10Enough,    // Quote 10
+  quote1Peace,      // Quote 11 (reuse image)
+  quote2Strength,   // Quote 12 (reuse image)
 ];
 
 const Lovebook: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(0); // 0 = welcome, 1-10 = quotes, 11 = final
+  const [currentPage, setCurrentPage] = useState(0); // 0 = welcome, 1-12 = quotes, 13 = final, 14 = reply
   const [girlfriendName, setGirlfriendName] = useState('');
 
   // Load from localStorage on mount
@@ -99,7 +107,7 @@ const Lovebook: React.FC = () => {
   };
 
   const handleNext = () => {
-    if (currentPage < 11) {
+    if (currentPage < 14) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -119,25 +127,62 @@ const Lovebook: React.FC = () => {
     return <WelcomeScreen onStart={handleStart} />;
   }
 
-  // Final Screen
-  if (currentPage === 11) {
+  // Final Screen (after all quotes)
+  if (currentPage === 13) {
     return (
       <FinalScreen
         name={girlfriendName}
         onReplay={handleReplay}
         onPrevious={handlePrevious}
+        onNext={handleNext}
+        showNext={true}
       />
     );
   }
 
-  // Quote Pages (1-10)
+  // Reply Screen
+  if (currentPage === 14) {
+    return (
+      <div className="min-h-screen flex flex-col justify-center items-center romantic-gradient-starry relative overflow-hidden p-6">
+        <div className="max-w-md mx-auto text-center">
+          <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-8 romantic-shadow">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              Ready to reply? 💕
+            </h2>
+            <p className="text-white/90 mb-8 leading-relaxed">
+              I'd love to hear from you, {girlfriendName}
+            </p>
+            <a
+              href="https://wa.link/ydfo6p"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="romantic-button inline-block w-full text-lg"
+            >
+              Click me to reply 💬
+            </a>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-6 left-6">
+          <button
+            onClick={handlePrevious}
+            className="romantic-button"
+          >
+            ← Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Quote Pages (1-12)
   const quoteIndex = currentPage - 1;
   return (
     <QuotePage
       quote={quotes[quoteIndex]}
       name={girlfriendName}
       currentPage={currentPage}
-      totalPages={11}
+      totalPages={12}
       onNext={handleNext}
       onPrevious={handlePrevious}
       backgroundClass={backgroundClasses[quoteIndex]}

@@ -1,5 +1,6 @@
 import React from 'react';
 import FloatingHearts from './FloatingHearts';
+import TypewriterText from './TypewriterText';
 
 interface QuotePageProps {
   quote: string;
@@ -44,9 +45,9 @@ const QuotePage: React.FC<QuotePageProps> = ({
             {/* Quote */}
             <div className="flex-1">
               <div className="bg-white/20 backdrop-blur-sm rounded-3xl p-6 md:p-8 romantic-shadow">
-                <p className="text-lg md:text-xl leading-relaxed text-white font-medium">
-                  {personalizedQuote}
-                </p>
+                <div className="text-lg md:text-xl leading-relaxed text-white font-medium">
+                  <TypewriterText text={personalizedQuote} speed={30} />
+                </div>
               </div>
             </div>
           </div>
@@ -64,7 +65,7 @@ const QuotePage: React.FC<QuotePageProps> = ({
         </button>
 
         <div className="flex space-x-2 order-1 sm:order-2">
-          {Array.from({ length: totalPages }, (_, index) => (
+          {Array.from({ length: 12 }, (_, index) => (
             <div
               key={index}
               className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${

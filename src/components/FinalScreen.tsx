@@ -5,9 +5,11 @@ interface FinalScreenProps {
   name: string;
   onReplay: () => void;
   onPrevious: () => void;
+  onNext?: () => void;
+  showNext?: boolean;
 }
 
-const FinalScreen: React.FC<FinalScreenProps> = ({ name, onReplay, onPrevious }) => {
+const FinalScreen: React.FC<FinalScreenProps> = ({ name, onReplay, onPrevious, onNext, showNext }) => {
   const [showConfetti, setShowConfetti] = useState(false);
 
   useEffect(() => {
@@ -66,21 +68,21 @@ const FinalScreen: React.FC<FinalScreenProps> = ({ name, onReplay, onPrevious })
         </button>
 
         <div className="flex space-x-2 order-1 sm:order-2">
-          {Array.from({ length: 11 }, (_, index) => (
+          {Array.from({ length: 13 }, (_, index) => (
             <div
               key={index}
               className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                index === 10 ? 'bg-white scale-125' : 'bg-white/50'
+                index === 12 ? 'bg-white scale-125' : 'bg-white/50'
               }`}
             />
           ))}
         </div>
 
         <button
-          onClick={onReplay}
+          onClick={showNext && onNext ? onNext : onReplay}
           className="romantic-button order-3"
         >
-          🔄 Replay
+          {showNext ? 'Continue →' : '🔄 Replay'}
         </button>
       </div>
     </div>
