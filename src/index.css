@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Romantic Lovebook Design System - All colors, gradients, fonts, etc defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Romantic Color Palette */
+    --background: 350 25% 97%;
+    --foreground: 340 20% 15%;
+    
+    /* Romantic Primary Colors */
+    --romantic-deep: 250 45% 25%;
+    --romantic-navy: 240 60% 20%;
+    --romantic-purple: 280 50% 30%;
+    --romantic-indigo: 260 55% 35%;
+    --romantic-gold: 45 85% 70%;
+    
+    /* Deep Romantic Gradients */
+    --gradient-sunset: linear-gradient(135deg, hsl(250 45% 25%), hsl(280 50% 30%), hsl(260 55% 35%));
+    --gradient-starry: linear-gradient(180deg, hsl(240 60% 15%), hsl(250 45% 10%));
+    --gradient-rose: linear-gradient(45deg, hsl(280 50% 30%), hsl(260 55% 35%));
+    --gradient-dreamy: linear-gradient(135deg, hsl(240 60% 20%), hsl(250 45% 25%), hsl(280 50% 30%));
+    --gradient-hearts: radial-gradient(circle, hsl(260 55% 35% / 0.3), transparent);
+    
+    /* Romantic Shadows */
+    --shadow-romantic: 0 20px 40px hsl(250 45% 25% / 0.3);
+    --shadow-hearts: 0 0 30px hsl(260 55% 35% / 0.5);
+    --shadow-dreamy: 0 10px 30px hsl(280 50% 30% / 0.4);
+    
+    /* Animation Variables */
+    --transition-romantic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-romantic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --background: 350 25% 97%;
+    --foreground: 340 20% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Romantic Animations & Effects */
+@layer utilities {
+  .romantic-gradient-sunset {
+    background: var(--gradient-sunset);
+  }
+  
+  .romantic-gradient-starry {
+    background: var(--gradient-starry);
+  }
+  
+  .romantic-gradient-rose {
+    background: var(--gradient-rose);
+  }
+  
+  .romantic-gradient-dreamy {
+    background: var(--gradient-dreamy);
+  }
+  
+  .romantic-shadow {
+    box-shadow: var(--shadow-romantic);
+  }
+  
+  .romantic-transition {
+    transition: var(--transition-romantic);
+  }
+  
+  /* Floating Hearts Animation */
+  .floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    color: hsl(var(--romantic-gold));
+    animation: float-up 6s infinite linear;
+    opacity: 0;
+  }
+  
+  .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+  .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+  .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+  .heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+  .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+  .heart:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+  .heart:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+  .heart:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+  
+  /* Page Transition Effects */
+  .page-enter {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+  }
+  
+  .page-enter-active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    transition: all 0.6s var(--bounce-romantic);
+  }
+  
+  .page-exit {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  
+  .page-exit-active {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.95);
+    transition: all 0.4s ease-in;
+  }
+  
+  /* Button Hover Effects */
+  .romantic-button {
+    background: var(--gradient-rose);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition-romantic);
+    box-shadow: var(--shadow-romantic);
+    min-width: 90px;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .romantic-button {
+      padding: 12px 32px;
+      font-size: 16px;
+      min-width: 120px;
+    }
+  }
+  
+  .romantic-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-dreamy);
+  }
+  
+  .romantic-button:active {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    bottom: -100px;
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(10px) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-10px) rotate(180deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translateX(5px) rotate(270deg);
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+    transform: translateX(0px) rotate(360deg);
+  }
+}
